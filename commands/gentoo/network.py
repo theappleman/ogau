@@ -166,6 +166,7 @@ def _confd_net_file(interfaces):
         if interface['label']:
             lines.append("# Label %s" % interface['label'])
         lines.append("config_{0}=\"".format(name))
+        lines.append( "  noop")
         lines.extend(["  {0}/{1}".format(ip['address'],
                         commands.network.NETMASK_TO_PREFIXLEN[ip['netmask']]
                     ) for ip in interface['ip4s'] ])
